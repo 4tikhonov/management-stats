@@ -4,10 +4,10 @@
 import re
 from pymongo import MongoClient
 from os import walk
-from configme import path
+from configme import path, logsdb
 
 client = MongoClient()
-management = client.get_database('management')
+management = client.get_database(logsdb)
 col = management.data
 
 def cleanline(thisline):
