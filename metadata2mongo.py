@@ -4,7 +4,7 @@
 import re
 from pymongo import MongoClient
 from os import walk
-from configme import path, metadb
+from configme import path, metadb, metadir
 
 def metadata2mongo(fullpath):
     file = open(fullpath, 'r')
@@ -28,11 +28,11 @@ metadatadb = client.get_database(metadb)
 col = metadatadb.data
 
 f = []
-for (dirpath, dirnames, filenames) in walk("%s/metadata" % path):
+for (dirpath, dirnames, filenames) in walk("%s/%s" % (path, metadir)):
     f.extend(filenames)
 
 for filename in f:
-    metadata = metadata2mongo("%s/metadata/%s" % (path, filename))
+    metadata = metadata2mongo("%s/%s/%s" % (path, metadir, filename))
     if metadata:
         try:
             col.insert_one(metadata)

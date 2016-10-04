@@ -1,0 +1,4 @@
+path = "/somedir/mainfiles"
+metadb = 'metadb'
+logsdb = 'logs'
+metadir = 'datasets'
