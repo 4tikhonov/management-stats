@@ -43,7 +43,7 @@ def cleanline(thisline):
 
 def file2mongo(path):
     file = open(fullpath, 'r')
-    outfile = open(outpath,'w')
+    #outfile = open(outpath,'w')
     lastline = file.readline()
 
 
@@ -68,8 +68,8 @@ def file2mongo(path):
     
         (main, newline) = cleanline(lastline)
         col.insert_one(main)
-        outfile.write(report)
-    outfile.close()
+        #outfile.write(report)
+    #outfile.close()
 
 
 f = []
@@ -78,7 +78,7 @@ for (dirpath, dirnames, filenames) in walk("%s/logs" % path):
 
 for filename in f:
     fullpath = "%s/logs/%s" % (path, filename)
-    outpath = "%s/reports/%s.sum" % (path, filename)
+    #outpath = "%s/reports/%s.sum" % (path, filename)
     print fullpath
     file2mongo(fullpath)
 print "Done"
