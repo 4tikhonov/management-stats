@@ -1,0 +1,3 @@
+path = "/Users/vyacheslavtykhonov/projects/management"
+metadb = 'metadb'
+logsdb = 'logs'
